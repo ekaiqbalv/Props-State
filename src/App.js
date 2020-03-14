@@ -4,14 +4,7 @@ import SeasonPage from "./pages/SeasonPage";
 class App extends Component {
   state = { lat: null, errorMessage: "" };
 
-  componentDidMount(){
-    window.navigator.geolocation.getCurrentPosition(
-      position => this.setState({ lat: position.coords.latitude }),
-      error => this.setState({ errorMessage: error.message })
-    );
-  }
-
-  render() {
+  const = renderContent () {
     if (this.state.lat && !this.state.errorMessage) {
       return <SeasonPage lat={this.state.lat} />;
     }
@@ -20,6 +13,17 @@ class App extends Component {
     }
 
     return <div>Loading...</div>;
+  }
+
+  componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(
+      position => this.setState({ lat: position.coords.latitude }),
+      error => this.setState({ errorMessage: error.message })
+    );
+  }
+
+  render() {
+    {renderContent()}
   }
 }
 

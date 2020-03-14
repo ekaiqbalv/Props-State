@@ -17,3 +17,19 @@
   right: 10px;
   bottom: 10px;
 }
+
+.summer{
+  background-color: #FFFFD5;
+}
+
+.winter{
+  background-color: #D9E9FF;
+}
+
+.summer i{
+  color: orange;
+}
+
+.winter i{
+  color: blue;
+}
