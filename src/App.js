@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import SeasonPage from "./pages/SeasonPage";
+import LoadingPage from "./pages/LoadingPage";
 
 class App extends Component {
   state = { lat: null, errorMessage: "" };
 
-  const = renderContent () {
+  renderContent() {
     if (this.state.lat && !this.state.errorMessage) {
       return <SeasonPage lat={this.state.lat} />;
     }
@@ -12,18 +13,26 @@ class App extends Component {
       return <div>Error: {this.state.errorMessage}</div>;
     }
 
-    return <div>Loading...</div>;
+    return <LoadingPage text="Please allow geolocation..." />;
   }
 
-  componentDidMount() {
+  getLocation(){
     window.navigator.geolocation.getCurrentPosition(
       position => this.setState({ lat: position.coords.latitude }),
       error => this.setState({ errorMessage: error.message })
     );
   }
 
+  componentDidMount() {
+     this.getLocation()
+  }
+
+  componentDidUpdate() {
+    this.getLocation()
+  }
+
   render() {
-    {renderContent()}
+    return <div>{this.renderContent()}</div>;
   }
 }
 
