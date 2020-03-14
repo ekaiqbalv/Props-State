@@ -1,0 +1,19 @@
+.container-season{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-top{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.right-bottom{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}

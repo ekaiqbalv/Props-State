@@ -1,11 +1,7 @@
 import React, { Component } from "react";
+import SeasonPage from "./pages/SeasonPage";
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = { lat: null, errorMessage: "" };
-  // }
   state = { lat: null, errorMessage: "" };
 
   componentDidMount(){
@@ -17,7 +13,7 @@ class App extends Component {
 
   render() {
     if (this.state.lat && !this.state.errorMessage) {
-      return <div>Latitude: {this.state.lat}</div>;
+      return <SeasonPage lat={this.state.lat} />;
     }
     if (!this.state.lat && this.state.errorMessage) {
       return <div>Error: {this.state.errorMessage}</div>;
